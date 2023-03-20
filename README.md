@@ -40,6 +40,10 @@
 
 # 설계
 
+### 시스템 설계
+
+![시스템구성도](https://user-images.githubusercontent.com/20380910/226425635-a57c8c5e-1948-4022-a82f-f17aa8608054.png)
+
 ### 어플리케이션 설계
 - 어플리케이션은 4계층 구조로 의존성 역전(DIP)를 적극적으로 활용하여 domain, application과 같은 고수준 모듈이 repository, infrastructure와 같은 저수준 모듈의 변경으로부터 자유롭
   도록 설계하였습니다.
