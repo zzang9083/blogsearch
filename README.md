@@ -47,6 +47,8 @@
 ### 어플리케이션 설계
 - 어플리케이션은 4계층 구조로 의존성 역전(DIP)를 적극적으로 활용하여 domain, application과 같은 고수준 모듈이 repository, infrastructure와 같은 저수준 모듈의 변경으로부터 자유롭
   도록 설계하였습니다.
+  
+![애플리케이션](https://user-images.githubusercontent.com/20380910/226426067-73e4253d-03de-417c-8d03-72ce9dc9bf1c.png)
 
 - presentation layer
   - 사용자에게 요청을 받아 application layer에 요청을 위임하고 결과를 응답합니다. api-doc 등의 요청/응답과 관련된 기술 요소를 구현합니다. 필요한 요청을 위임하기 위해 domain layer에서 제공하는 추상화된 Service에 의존합니다.
