@@ -1,0 +1,8 @@
+### 'TEST' 키워드 / 정확도 - SORT기준  / 1- 페이지 / 10- 페이지당 문서수 검색
+GET http://localhost:8080/search/blog?query=TEST&sort=accuracy&page=1&size=10
+
+### 'TEST' 키워드 / 최신순 - SORT기준  / 1- 페이지 / 5- 페이지당 문서수 검색
+GET http://localhost:8080/search/blog?query=TEST&sort=recency&page=1&size=5
+
+### 최대 10개 인기 검색어 조회
+GET http://localhost:8080/keyword/rank

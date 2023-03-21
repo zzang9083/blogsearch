@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+
+  redis:
+    image: redis:latest
+    command: redis-server --port 6379
+    ports:
+      - "6379:6379"
+    restart: on-failure
+
+  blog_api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    restart: on-failure
+    depends_on:
+      - redis
