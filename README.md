@@ -9,7 +9,7 @@
 
 ### ▶docker-compose 명령어를 통해 실행
 ```bash
-# * 실행을 위한 필수데이터(root 기준)
+# * 실행을 위한 필수데이터(프로젝트 최상위 기준)
 $ 1. build\libs\blogsearchservice-0.0.1-SNAPSHOT.jar (spring boot app jarfile)
 $ 2. Dockerfile, docker-compose.yml (도커 이미지 로드를 위한 파일)
 $ 3. src\main\resources\application-docker.yml (도커 프로퍼티 파일)
@@ -18,7 +18,7 @@ $ 3. src\main\resources\application-docker.yml (도커 프로퍼티 파일)
 $ docker-compose up -d
 ```
 ### ▶ 테스트
-   - root 디렉토리 하위의 request_test.http 파일 활용
+   - 프로젝트 최상위 request_test.http 파일 활용
    - `http://{HOST}:{PORT}/api-docs`접속하여 swagger 활용
       - ex: `http://localhost:8080/api-docs`
 
