@@ -1,9 +1,28 @@
 # 목차
+- [0. 실행](#실행)
 - [1. 개발환경](#개발환경)
 - [2. 설계](#설계)
 - [3. 과제기능 요구사항](#과제기능-요구사항)
 - [4. 추가요건 문제해결 전략](#추가요건-문제해결-전략)
 
+# 실행
+
+### ▶docker-compose 명령어를 통해 실행
+```bash
+# * 실행을 위한 필수데이터(root 기준)
+$ 1. build\libs\blogsearchservice-0.0.1-SNAPSHOT.jar (spring boot app jarfile)
+$ 2. Dockerfile, docker-compose.yml (도커 이미지 로드를 위한 파일)
+$ 3. src\main\resources\application-docker.yml (도커 프로퍼티 파일)
+#
+# * 도커 실행 명령어 - [spring boot app, redis]
+$ docker-compose up -d
+```
+### ▶ 테스트
+   - root 디렉토리 하위의 request_test.http 파일 활용
+   - `http://{HOST}:{PORT}/api-docs`접속하여 swagger 활용
+      - ex: `http://localhost:8080/api-docs`
+
+---
 
 # 개발환경
 
