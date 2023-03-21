@@ -46,6 +46,9 @@
 
 ![시스템구성도](https://user-images.githubusercontent.com/20380910/226425635-a57c8c5e-1948-4022-a82f-f17aa8608054.png)
 
+### ▶서비스 설계(시퀀스 다이어그램)
+
+![SequenceDiagram1](https://user-images.githubusercontent.com/20380910/226672676-729f1138-ac96-438a-9508-77816e844ef0.jpg)
 
 ### ▶어플리케이션 설계
 
