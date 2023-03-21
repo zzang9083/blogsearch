@@ -24,33 +24,12 @@ class ClientMonoBuilderTest {
         Assertions.assertThat(block).isNotNull();
     }
 
-//    @Test
-//    @DisplayName("네이버 API 호출 테스트")
-//    void naverTest() {
-//        NaverApiInfo naverApiInfo = naverApiInfo();
-//        ClientMonoBuilder clientMonoBuilder = new NaverClientMonoBuilder(naverApiInfo);
-//
-//        Mono<LocationEntities> result = clientMonoBuilder.buildFor(new Search("곱창"));
-//
-//        LocationEntities block = result.block();
-//        Assertions.assertThat(block).isNotNull();
-//    }
-private KakaoApiInfo kakaoApiInfo() {
-    return KakaoApiInfo.builder()
-            .host("https://dapi.kakao.com")
-            .path("/v2/search/blog")
-            .apiKey("1e86f3354d827c03cad979c213776bf1")
-            .build();
-}
+    private KakaoApiInfo kakaoApiInfo() {
+        return KakaoApiInfo.builder()
+                .host("https://dapi.kakao.com")
+                .path("/v2/search/blog")
+                .apiKey("1e86f3354d827c03cad979c213776bf1")
+                .build();
+    }
 
-
-//    private NaverApiInfo naverApiInfo() {
-//        return NaverApiInfo.builder()
-//                .host("https://openapi.naver.com")
-//                .path("/v1/search/local.json")
-//                .clientId("_8o4EDT1hTGUY4iPKU90")
-//                .clientSecret("W8zCY43K_R")
-//                .displayCount("5")
-//                .build();
-//    }
 }
