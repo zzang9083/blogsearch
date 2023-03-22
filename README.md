@@ -67,10 +67,6 @@ $ docker-compose up -d
 
 ![시스템구성도](https://user-images.githubusercontent.com/20380910/226425635-a57c8c5e-1948-4022-a82f-f17aa8608054.png)
 
-### ▶서비스 설계(시퀀스 다이어그램)
-
-![SequenceDiagram1](https://user-images.githubusercontent.com/20380910/226672676-729f1138-ac96-438a-9508-77816e844ef0.jpg)
-
 ### ▶어플리케이션 설계
 
 ![애플리케이션](https://user-images.githubusercontent.com/20380910/226426067-73e4253d-03de-417c-8d03-72ce9dc9bf1c.png)
@@ -101,6 +97,7 @@ $ docker-compose up -d
 # 과제기능 요구사항
 
 ### ▶블로그 검색
+![SequenceDiagram1](https://user-images.githubusercontent.com/20380910/226672676-729f1138-ac96-438a-9508-77816e844ef0.jpg)
 - 카카오 블로그 검색 API의 입출력 레이아웃에 맞추어 설계했습니다.
   - 필수값 : query(검색질의어) / 선택값 : sort(정렬방식), page(결과 페이지번호) , size(한페이지당 문서수)
 - 추후 카카오 API 이외에 새로운 검색 소스가 추가될 수 있음을 고려하여 API 클라이언트의 추상 클래스을 정의했습니다.
@@ -110,6 +107,7 @@ $ docker-compose up -d
 
 
 ### ▶인기 검색어 목록
+![SequenceDiagram2](https://user-images.githubusercontent.com/20380910/226908640-15a40697-0f29-496b-9505-450788a98591.jpg)
 - 후행처리 모듈(postProcessor)을 정의하여 검색순위, 최대표출 갯수를 filter하여 제공합니다.
 
 ---
@@ -126,3 +124,22 @@ $ docker-compose up -d
 - 키워드 검색 시 Non-Blocking 방식으로 네트워킹의 병목현상이 줄어들고, kakao외에 여러 API 호출에 대해 병렬처리 할 것을 고려하여 **WebClient**를 활용했습니다.
 - 키워드 검색 시, 결과를 **Cache**에 저장(만료 1시간)하여 동일한 검색 키워드에 대해 API 호출을 하지 않고 Cache 결과를 사용하기 때문에 API 호출을 위한 병목 지점을 줄여서 응답속도
   와 처리량이 개선될 것입니다.
+
+### ▶카카오톡 장애상황에 대한 네이버 블로그 API 호출
+```
+//BlogWebClients.java
+//Kakao API에서 예외가 발생하면 후행인 네이 API 수행
+public BlogEntities requestAbout(Search search) {
+        return runWithFallback(kakaoClientMonoBuilder, naverClientMonoBuilder, search);
+    }
+
+public BlogEntities runWithFallback(ClientMonoBuilder primaryBuilder, ClientMonoBuilder fallbackBuilder, Search search) {
+   try {
+      return primaryBuilder.buildFor(search).share().block();
+   } catch (Exception e) {
+      // 예외가 발생하면 fallbackBuilder를 이용해 후행 API 수행
+      return fallbackBuilder.buildFor(search).share().block();
+   }
+}
+```
+ 
