@@ -14,7 +14,7 @@ $ 1. blogsearchservice-0.0.1-SNAPSHOT.jar (spring boot app jarfile)
 $ 2. Dockerfile, docker-compose.yml (도커 이미지 로드를 위한 파일)
 $ 3. src\main\resources\application-docker.yml (도커 프로퍼티 파일)
 #
-# * 반드시 위 데이터들이 있는 경로에서 도커 실행 명령어를 수행해야함.
+# * 반드시 프로젝트 최상위 경로(blogsearchservice-0.0.1-SNAPSHOT.jar,Dockerfile, docker-compose.yml 파일이 있는 경로)에서 도커 실행 명령어를 수행해야함.
 #
 # * 도커 실행 명령어 - [spring boot app, redis]
 $ docker-compose up -d
@@ -53,7 +53,7 @@ $ docker-compose up -d
 - API 클라이언트 : [spring boot webflux]
   - 외부 API 호출 클라이언트 기술로 webflux를 활용했습니다. 추후 카카오 API 이외에 다른 API도 함께 호출하는 것을 고려했을 때 병렬 호출도 지원해주는 webflux를 선택했습니다.
 - 캐시 : [spring boot cache + spring boot data redis]
-  - 동일한 요청한 요청에 대한 응답 속도를 개선하고, 대용량 트래픽 처리로 발생하는 병목현상을 예방하기 위해 캐시를 선택했고, 분산 환경을 고려하여 redis를 선택했습니다.
+  - 동일한 요청에 대한 응답 속도를 개선하고, 대용량 트래픽 처리로 발생하는 병목현상을 예방하기 위해 캐시를 선택했고, 분산 환경을 고려하여 redis를 선택했습니다.
 - API Document : [springdoc openapi]
   - API 문서화와 브라우저에서 테스트 가능하게끔 openapi(swagger)를 적용했습니다.
 - 기타 : [lombok]
