@@ -10,9 +10,11 @@
 ### ▶docker-compose 명령어를 통해 실행
 ```bash
 # * 실행을 위한 필수데이터(프로젝트 최상위 기준)
-$ 1. build\libs\blogsearchservice-0.0.1-SNAPSHOT.jar (spring boot app jarfile)
+$ 1. blogsearchservice-0.0.1-SNAPSHOT.jar (spring boot app jarfile)
 $ 2. Dockerfile, docker-compose.yml (도커 이미지 로드를 위한 파일)
 $ 3. src\main\resources\application-docker.yml (도커 프로퍼티 파일)
+#
+# * 반드시 위 데이터들이 있는 경로에서 도커 실행 명령어를 수행해야함.
 #
 # * 도커 실행 명령어 - [spring boot app, redis]
 $ docker-compose up -d
