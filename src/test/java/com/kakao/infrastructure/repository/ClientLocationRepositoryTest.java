@@ -13,7 +13,6 @@ import com.kakao.infrastructure.repository.search.ClientBlogRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,9 +21,8 @@ class ClientLocationRepositoryTest {
     BlogWebClients blogWebClients = new BlogWebClients(new KakaoClientMonoBuilder(kakaoApiInfo()),new NaverClientMonoBuilder(naverApiInfo()));
 
     @Test
-    @DisplayName("Kakao API 호출 테스트")
-    void Kakao_처리_결과_반환_테스트() {
-
+    @DisplayName("블로그 조회 API 호출 테스트")
+    void 블로그_조회_API_결과_반환_테스트() {
         ClientBlogRepository clientBlogRepository = new ClientBlogRepository(blogWebClients);
         Blogs blogs = clientBlogRepository.findBy(new Search("피자", "accuracy", 1, 10));
 
@@ -42,7 +40,7 @@ class ClientLocationRepositoryTest {
     private NaverApiInfo naverApiInfo() {
         return NaverApiInfo.builder()
                 .host("https://openapi.naver.com")
-                .path("v1/search/blog.json")
+                .path("/v1/search/blog.json")
                 .clientId("tmG680p7fB8diXIHpI_Y")
                 .clientSecret("xjh6dcwKYQ")
                 .build();

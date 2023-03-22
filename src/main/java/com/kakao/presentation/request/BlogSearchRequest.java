@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 public class BlogSearchRequest {
     @NotEmpty @NotBlank @NotNull
-    @Schema(description = "검색질의어", defaultValue = "테스트")
+    @Schema(description = "검색질의어", defaultValue = "TEST")
     private String query;
     @Schema(description = "정렬방식", defaultValue = "accuracy", allowableValues = {"accuracy", "recency"})
     private String sort;

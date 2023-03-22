@@ -38,7 +38,7 @@ api:
     apiKey: "1e86f3354d827c03cad979c213776bf1"
   naver:
     host: "https://openapi.naver.com"
-    path: "v1/search/blog.json"
+    path: "/v1/search/blog.json"
     clientId: "tmG680p7fB8diXIHpI_Y"
     clientSecret: "xjh6dcwKYQ"
 lock:
