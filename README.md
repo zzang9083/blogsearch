@@ -6,15 +6,17 @@
 - [4. 추가요건 문제해결 전략](#추가요건-문제해결-전략)
 
 # 실행
+### ▶프로젝트 다운로드
+https://github.com/zzang9083/blogsearch/archive/refs/heads/master.zip
 
 ### ▶docker-compose 명령어를 통해 실행
 ```bash
+# 프로젝트 다운로드 후, 프로젝트 최상위 경로에서 docker를 이용하여 자바 프로그램을 실행한다.
+#
 # * 실행을 위한 필수데이터(프로젝트 최상위 기준)
 $ 1. blogsearchservice-0.0.1-SNAPSHOT.jar (spring boot app jarfile)
 $ 2. Dockerfile, docker-compose.yml (도커 이미지 로드를 위한 파일)
 $ 3. src\main\resources\application-docker.yml (도커 프로퍼티 파일)
-#
-# * 반드시 프로젝트 최상위 경로(blogsearchservice-0.0.1-SNAPSHOT.jar,Dockerfile, docker-compose.yml 파일이 있는 경로)에서 도커 실행 명령어를 수행해야함.
 #
 # * 도커 실행 명령어 - [spring boot app, redis]
 $ docker-compose up -d
